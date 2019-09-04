@@ -253,24 +253,24 @@ typedef struct _CScreen{
 }CScreen;
 
 typedef enum _ScreenIdType{
-MAIN_SCREEN= 0,
-SETUP_SCREEN =1,
-PID_SETTING_SCREEN= 2,
-UNIT_SETTING_SCREEN= 3,
-AUTO_SETTING_SCREEN = 4,
+	MAIN_SCREEN= 0,
+	SETUP_SCREEN =1,
+	PID_SETTING_SCREEN= 2,
+	UNIT_SETTING_SCREEN= 3,
+	AUTO_SETTING_SCREEN = 4,
 
-MANUAL_MODE_SCREEN = 5,
-AUTO_MODE_SCREEN = 6,
-MISC_SETTING_SCREEN = 7,
+	MANUAL_MODE_SCREEN = 5,
+	AUTO_MODE_SCREEN = 6,
+	MISC_SETTING_SCREEN = 7,
 
-#if MaximumNumberOfSensors > 1
-SENSOR_SCREEN,
-#endif
-#if SupportDistilling
-	DISTILL_SETTING_SCREEN,
-	DISTILLING_MODE_SCREEN,
-#endif
-END_OF_SCREEN
+	#if MaximumNumberOfSensors > 1
+	SENSOR_SCREEN,
+	#endif
+	#if SupportDistilling
+		DISTILL_SETTING_SCREEN,
+		DISTILLING_MODE_SCREEN,
+	#endif
+	END_OF_SCREEN
 } ScreenIdType;
 
 const CScreen allScreens[]  =
@@ -339,7 +339,8 @@ void setEventMask(byte mask)
 // *************************
 #include "buzz.h"
 
-#include "resources.h"
+//#include "resources.h"
+#include "resources-ptbr.h"
 #include "ui.h"
 
 #include "ps.h"
@@ -4797,8 +4798,7 @@ void autoModeMashingStageFinished(void)
 //boolean _isBoilTimerPaused;
 #define _isBoilTimerPaused gIsPaused
 
-void autoModeEnterBoiling(void)
-{
+void autoModeEnterBoiling(void){
 #if SpargeHeaterSupport == true
 	if(gEnableSpargeWaterHeatingControl)
 	{
@@ -4822,6 +4822,8 @@ void autoModeEnterBoiling(void)
 
 	uiAutoModeStage(BoilingStage);
 	uiButtonLabel(ButtonLabel(Up_Down_x_Pmp));
+	//uiButtonLabel(ButtonLabel(Up_Down_Heat_Pmp));
+	
 
 	if(readSetting(PS_PumpOnBoil)) pump.on();
 	else pump.off();
@@ -6101,6 +6103,7 @@ bool autoModeAskMaltRemoveHandler(byte event)
 
 bool autoModeBoilingHandler(byte event)
 {
+	
 	if(event ==ButtonPressedEventMask){
 		if (btnIsEnterPressed){
 			// pump control
@@ -6109,6 +6112,18 @@ bool autoModeBoilingHandler(byte event)
 			if(_isBoilTempReached){
 				autoModeBoilingPauseHandler();
 			}
+			
+			else{
+				//inverte estado da resistencia
+				if(_physicalHeattingOn)	heatPhysicalOff();    //desliga fisicamente mas o controle continua
+				else 					heatPhysicalOn();  
+				/*
+				if(digitalWrite(NODEMCU_PIN_D7))	heatOff();
+				else 								heatOn(); 
+				 */
+			}
+			
+
 		}else{
 			processAdjustButtons();
 		}
@@ -6332,7 +6347,7 @@ bool autoModeWhirlpoolHandler(byte event)
 						pump.off();
 						uiRunningTimeShowInitial(_whirlpoolTime * 60);
 						tmPauseTimer();
-
+						
 						uiButtonLabel(ButtonLabel(x_x_Time_Pmp));
 					}else{
 						_pumpRunning = true;

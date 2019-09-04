@@ -28,6 +28,10 @@
 *   for the usage of some PINs may involve I2C IO expander
 */
 
+//sparge heater control
+#define SpargeHeaterSupportEnabled true
+//#define SecondaryHeaterSupportEnabled true
+
 
 #if MultipleSensorEnabled
 #define MaximumNumberOfSensors 5
@@ -158,9 +162,11 @@
 /*  Don't touch them if you don't know what they are.								  */
 /**************************************************************************************/
 
-
+//#define FIRMWARE_UPDATE_URL "http://google.com"
 #define FIRMWARE_UPDATE_URL "http://brew.vito.tw/bmeupdate.php?info"
-#define JS_UPDATE_URL  "http://brew.vito.tw/bmejsupdate.ml.php?v="
+//#define JS_UPDATE_URL  "http://brew.vito.tw/bmejsupdate.ml.php?v="
+#define JS_UPDATE_URL "http://qa.cultivitacontrol.com.br/bmejsupdate.json"
+
 
 // request status report period
 #define DEFAULT_REPORT_PERIOD 6000
@@ -176,6 +182,7 @@
 /**************************************************************************************/
 
 #define BME8266_VERSION "0.4.7"
+#define _VERSION "0.0.1"
 
 #if MaximumNumberOfSensors >  1
 	#if LCD_USE_SSD1306 == true
