@@ -162,10 +162,11 @@
 /*  Don't touch them if you don't know what they are.								  */
 /**************************************************************************************/
 
-//#define FIRMWARE_UPDATE_URL "http://google.com"
-#define FIRMWARE_UPDATE_URL "http://brew.vito.tw/bmeupdate.php?info"
+//#define FIRMWARE_UPDATE_URL "http://brew.vito.tw/bmeupdate.php?info"
 //#define JS_UPDATE_URL  "http://brew.vito.tw/bmejsupdate.ml.php?v="
-#define JS_UPDATE_URL "http://qa.cultivitacontrol.com.br/bmejsupdate.json"
+//#define JS_UPDATE_URL "http://qa.cultivitacontrol.com.br/bmejsupdate.json"
+#define JS_UPDATE_URL  "http://qa.cultivitacontrol.com.br/bmejsupdate.json?v="
+#define FIRMWARE_UPDATE_URL "http://qa.cultivitacontrol.com.br/bmeupdate.json?"
 
 
 // request status report period
