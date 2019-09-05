@@ -321,10 +321,16 @@ const byte _FahrenheitSymbol[8] PROGMEM = {B01000, B10100, B01000, B00111, B0010
 
 const byte _SetpointSymbol[8]  PROGMEM  = {B11100, B10000, B11100, B00111, B11101, B00111, B00100, B00100};  // [2] SP Symbol
 
+const byte _PumpSymbol[8]  PROGMEM  = { 0b00000, 0b01000, 0b01000, 0b01110, 0b01010, 0b01010, 0b01110, 0b00000};  // [3] Pump Symbol
+const byte _RevPumpSymbol[8] PROGMEM = {0b11111, 0b10111, 0b10111, 0b10001, 0b10101, 0b10101, 0b10001, 0b11111 };  // [4] Reverse PUMP Symbol
+const byte _HeatingSymbol[8] PROGMEM   = { 0b00000, 0b01110, 0b01010, 0b01010, 0b01100, 0b01010, 0b01001, 0b00000};  // [5] HEAT symbol
+const byte _RevHeatingSymbol[8] PROGMEM = { 0b11111, 0b10011, 0b10101, 0b10101, 0b10011, 0b10101, 0b10101, 0b11111};  // [6] reverse HEAT symbol
+/*
 const byte _PumpSymbol[8]  PROGMEM  = {B00000, B01110, B01010, B01110, B01000, B01000, B01000, B00000};  // [3] Pump Symbol
 const byte _RevPumpSymbol[8] PROGMEM = {B11111, B10001, B10101, B10001, B10111, B10111, B10111, B11111};  // [4] Reverse PUMP Symbol
 const byte _HeatingSymbol[8] PROGMEM   = {	B00000, B01010, B01010, B01110, B01110, B01010, B01010, B00000};  // [5] HEAT symbol
 const byte _RevHeatingSymbol[8] PROGMEM = {B11111, B10101, B10101, B10001, B10001, B10101, B10101, B11111};  // [6] reverse HEAT symbol
+*/
 const byte _RevSpargeHeatingSymbol[8] PROGMEM={B11111, B11111, B10001, B01111, B10001, B11110, B00001, B11111};
 
 const byte _WirelessSymbol[8] PROGMEM =  {B00000,B01110,B10001,B00100,B01010,B00000,B00100,B00000};
