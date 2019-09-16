@@ -61,7 +61,7 @@ StringConst(Add_Malt, "Adc. Malte");
 StringConst(Remove_Malt, "Rem. Malte");
 
 #if EnableExtendedMashStep
-StringConst(Skip_Or_Extend,"Prol/Avan?");
+StringConst(Skip_Or_Extend,"Conti/Avan?");
 #else
 StringConst(Go_to_next_step,"Prox Etapa?");
 #endif
@@ -162,7 +162,7 @@ DefineButtonLabel( Up_Down_Pause_Pmp, "UP* *DWN Pausa Bmb",26);
 DefineButtonLabel( Up_Down_RUN_Pmp,   "UP* *DWN  Exe  Bmb",27);
 #endif
 
-DefineButtonLabel( Up_Down_End_More,  "UP* *DWN Done Mais",28);
+DefineButtonLabel( Up_Down_End_More,  "UP* *DWN  OK Mais",28);
 
 DefineButtonLabel( Up_x_x_Ok,  		  "Up   ---  ---   Ok",29);
 DefineButtonLabel( x_Down_x_Ok,   	  "---  Dwn  ---   Ok",30);
@@ -176,9 +176,9 @@ DefineButtonLabel( x_x_Exit_Pmp,      "---  ---  Sair Bmb",31);
 DefineButtonLabel( Tune_PID_No_Yes,   "Cal. PID?  Nao Sim",32);
 DefineButtonLabel( Stop_No_Yes,       " Parar?    Nao Sim",33);
 
-DefineButtonLabel( AccessPoint_Yes,   "Modo AP?      Yes",34);
+DefineButtonLabel( AccessPoint_Yes,   "Modo AP?      Sim",34);
 
-DefineButtonLabel( Extend_Skip_Back,   "Etapa -  Prox/Vol",35);
+DefineButtonLabel( Extend_Skip_Back,   "Etapa -  Prox/Cont",35);
 
 #if UsePaddleInsteadOfPump
 DefineButtonLabel( Up_Down_Skip_Pmp,   "UP* *DWN Skip Stir",36);
